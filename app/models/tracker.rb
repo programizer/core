@@ -201,14 +201,10 @@ class Tracker < ApplicationRecord
   end
 
   searchkick word_start: [:name]
-  scope :search_import, -> { 
-    includes(:issues) 
-  }
 
   def search_data
      {
        name: name,
-       issues_count: issues.count,
        watchers: watchers,
        forks: forks,
        open_issues: open_issues,
