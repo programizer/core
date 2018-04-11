@@ -16,6 +16,7 @@ gem 'pg', '~> 0.18.1'
 gem 'mysql2', '0.3.17'
 gem 'puma'
 gem 'oj'
+gem 'http'
 
 gem 'rabl'
 gem 'jbuilder'

@@ -51,14 +51,12 @@ class Api::V2::CartController < Api::BaseController
     elsif @checkout_method.is_a?(Account::GoogleWallet)
       render json: { jwt: @cart.create_google_wallet_jwt }, status: :accepted
 
-    # Render the JSON to trigger a Coinbase payment modal
+    # Using Coinbase Commerce API 
+    # See https://commerce.coinbase.com/docs/api/#create-a-checkout
+    # And https://github.com/httprb/http/wiki/Passing-Parameters
     elsif @checkout_method.is_a?(Account::Coinbase)
-      options = {
-        cancel_url: params[:cancel_url],
-        currency: params[:currency] || 'USD'
-      }
-      checkout_url = @cart.create_coinbase_checkout_url(options)
-      render json: { checkout_url: checkout_url }, status: :accepted
+      response = HTTP.post('https://api.commerce.coinbase.com/checkouts', :body => "name=test&description=test&pricing_type=fixed_price")
+      render json: { response: response }, status: :accepted
     end
   end
 
