@@ -1,7 +1,7 @@
-class Api::V2::TimelineController < Api::BaseController
+class Api::V3::TimelineController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::TimelineHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::TimelineHelper
 
   def index
     @collection = []

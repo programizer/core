@@ -1,4 +1,4 @@
-class Api::V2::IssueSuggestionsController < Api::BaseController
+class Api::V3::IssueSuggestionsController < Api::BaseController
 
   before_action :require_auth, only: [:create, :update]
   before_action :require_issue_suggestion_admin, only: [:update]

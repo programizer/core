@@ -1,4 +1,4 @@
-class Api::V2::RequestForProposalsController < Api::BaseController
+class Api::V3::RequestForProposalsController < Api::BaseController
   include CurrencyConversion
   include RequestForProposalAuthorization
 
@@ -17,7 +17,7 @@ class Api::V2::RequestForProposalsController < Api::BaseController
       due_date: params[:due_date],
       abstract: params[:abstract]
     )
-    render 'api/v2/request_for_proposals/create', status: :created
+    render 'api/v3/request_for_proposals/create', status: :created
   end
 
   def update

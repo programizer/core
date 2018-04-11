@@ -1,4 +1,4 @@
-class Api::V2::CommentsController < Api::BaseController
+class Api::V3::CommentsController < Api::BaseController
 
   def index
     @include_author = params[:include_author].to_bool

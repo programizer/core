@@ -1,7 +1,7 @@
-class Api::V2::TrackersController < Api::BaseController
+class Api::V3::TrackersController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::TrackersHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::TrackersHelper
 
   after_action log_activity(Tracker::Event::VIEW), only: [:show]
 

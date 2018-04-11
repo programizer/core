@@ -1,7 +1,7 @@
-class Api::V2::RecommendationsController < Api::BaseController
+class Api::V3::RecommendationsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::TimelineHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::TimelineHelper
 
   before_action :require_auth, only: [:index, :create]
 

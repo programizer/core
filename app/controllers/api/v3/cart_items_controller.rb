@@ -1,6 +1,6 @@
-class Api::V2::CartItemsController < Api::BaseController
+class Api::V3::CartItemsController < Api::BaseController
 
-  include Api::V2::CartItemsHelper
+  include Api::V3::CartItemsHelper
 
   before_action :require_cart
 
@@ -17,7 +17,7 @@ class Api::V2::CartItemsController < Api::BaseController
     @item = @cart.add_item(params.to_unsafe_h)
     @owner = @item.try(:owner)
 
-    render 'api/v2/cart_items/show'
+    render 'api/v3/cart_items/show'
   end
 
   def update
@@ -28,7 +28,7 @@ class Api::V2::CartItemsController < Api::BaseController
 
     @item = @cart.update_item(index, params.to_unsafe_h)
 
-    render 'api/v2/cart_items/show'
+    render 'api/v3/cart_items/show'
   end
 
   def destroy

@@ -1,7 +1,7 @@
-class Api::V2::FundraiserRewardsController < Api::BaseController
+class Api::V3::FundraiserRewardsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::FundraiserRewardsHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::FundraiserRewardsHelper
 
   def index
     @collection = ::Reward.all

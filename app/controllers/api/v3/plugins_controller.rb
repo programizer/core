@@ -1,7 +1,7 @@
-class Api::V2::PluginsController < Api::BaseController
+class Api::V3::PluginsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::PluginsHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::PluginsHelper
 
   before_action :parse_boolean_values
 

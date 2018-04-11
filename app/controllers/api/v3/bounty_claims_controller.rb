@@ -1,7 +1,7 @@
-class Api::V2::BountyClaimsController < Api::BaseController
+class Api::V3::BountyClaimsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::BountyClaimsHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::BountyClaimsHelper
 
   def index
     @collection = ::BountyClaim

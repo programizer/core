@@ -1,7 +1,7 @@
-class Api::V2::PledgesController < Api::BaseController
+class Api::V3::PledgesController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::PledgesHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::PledgesHelper
 
   def index
     @collection = ::Pledge.all

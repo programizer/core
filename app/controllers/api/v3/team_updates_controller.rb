@@ -1,7 +1,7 @@
-class Api::V2::TeamUpdatesController < Api::BaseController
+class Api::V3::TeamUpdatesController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::BaseHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::BaseHelper
 
   before_action :load_team, only: [:index]
   before_action :require_team, except: [:index]

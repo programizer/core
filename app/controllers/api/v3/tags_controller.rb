@@ -1,6 +1,6 @@
-class Api::V2::TagsController < Api::BaseController
+class Api::V3::TagsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
+  include Api::V3::PaginationHelper
 
   before_action :require_auth, only: [ :create ]
 
@@ -85,7 +85,7 @@ class Api::V2::TagsController < Api::BaseController
 
     # render the index
     index
-    render 'api/v2/tags/index'
+    render 'api/v3/tags/index'
   end
 
   def destroy

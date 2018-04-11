@@ -1,7 +1,7 @@
-class Api::V2::SolutionsController < Api::BaseController
+class Api::V3::SolutionsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::DeveloperGoalsHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::DeveloperGoalsHelper
 
   def index
     @collection = Solution.all

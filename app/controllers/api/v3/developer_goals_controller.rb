@@ -1,7 +1,7 @@
-class Api::V2::DeveloperGoalsController < Api::BaseController
+class Api::V3::DeveloperGoalsController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::DeveloperGoalsHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::DeveloperGoalsHelper
 
   before_action :require_auth, only: [:update, :create]
 
@@ -30,10 +30,10 @@ class Api::V2::DeveloperGoalsController < Api::BaseController
       render json: {}
     elsif @item
       @item.update_attributes(amount: params[:amount])
-      render 'api/v2/developer_goals/show'
+      render 'api/v3/developer_goals/show'
     else
       @item = current_user.developer_goals.create!(issue: issue, amount: params[:amount])
-      render 'api/v2/developer_goals/show'
+      render 'api/v3/developer_goals/show'
     end
   end
 

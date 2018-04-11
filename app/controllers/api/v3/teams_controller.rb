@@ -1,7 +1,7 @@
-class Api::V2::TeamsController < Api::BaseController
+class Api::V3::TeamsController < Api::BaseController
 
-  include Api::V2::BaseHelper
-  include Api::V2::PaginationHelper
+  include Api::V3::BaseHelper
+  include Api::V3::PaginationHelper
 
   before_action :require_auth, only: [:update]
   before_action :require_team, only: [:update, :show]
@@ -145,7 +145,7 @@ class Api::V2::TeamsController < Api::BaseController
     end
 
     @include_team_extended = true
-    render 'api/v2/teams/show'
+    render 'api/v3/teams/show'
   end
 
   def show

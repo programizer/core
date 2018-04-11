@@ -1,4 +1,4 @@
-class Api::V2::ThumbsController < Api::BaseController
+class Api::V3::ThumbsController < Api::BaseController
 
   def index
     raise "Unexpected input" unless params[:url].is_a?(String) || params[:urls].is_a?(Array)

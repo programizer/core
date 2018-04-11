@@ -1,6 +1,6 @@
-class Api::V2::IssuesController < Api::BaseController
-  include Api::V2::PaginationHelper
-  include Api::V2::IssuesHelper
+class Api::V3::IssuesController < Api::BaseController
+  include Api::V3::PaginationHelper
+  include Api::V3::IssuesHelper
 
   after_action log_activity(Issue::Event::VIEW), only: [:show]
 
@@ -18,7 +18,7 @@ class Api::V2::IssuesController < Api::BaseController
     @include_issue_team = true
     @include_issue_tracker = true
 
-    render 'api/v2/issues/index'
+    render 'api/v3/issues/index'
   end
 
   def index
@@ -102,6 +102,6 @@ class Api::V2::IssuesController < Api::BaseController
       response.status = :created
     end
 
-    render 'api/v2/issues/show'
+    render 'api/v3/issues/show'
   end
 end

@@ -1,7 +1,7 @@
-class Api::V2::PeopleTrackersController < Api::BaseController
+class Api::V3::PeopleTrackersController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::PeopleTrackersHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::PeopleTrackersHelper
 
   before_action :parse_boolean_values
 

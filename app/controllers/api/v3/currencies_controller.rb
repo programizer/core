@@ -1,4 +1,4 @@
-class Api::V2::CurrenciesController < ApplicationController
+class Api::V3::CurrenciesController < ApplicationController
 
   def index
     render json: Currency.index, status: :ok

@@ -1,7 +1,7 @@
-class Api::V2::FundraisersController < Api::BaseController
+class Api::V3::FundraisersController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::FundraisersHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::FundraisersHelper
 
   before_action :parse_boolean_values
 

@@ -1,7 +1,7 @@
-class Api::V2::BackersController < Api::BaseController
+class Api::V3::BackersController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::BackersHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::BackersHelper
 
   def index
     @collection = top_backers(params)

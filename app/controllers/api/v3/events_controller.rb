@@ -1,4 +1,4 @@
-class Api::V2::EventsController < Api::BaseController
+class Api::V3::EventsController < Api::BaseController
 
   before_action :parse_boolean_values
 
@@ -23,7 +23,7 @@ class Api::V2::EventsController < Api::BaseController
 
     @item.save!
 
-    render 'api/v2/events/show', status: :created
+    render 'api/v3/events/show', status: :created
   end
 
   def update
@@ -39,7 +39,7 @@ class Api::V2::EventsController < Api::BaseController
 
     @item.save!
 
-    render 'api/v2/events/show', status: :ok
+    render 'api/v3/events/show', status: :ok
   end
 
   private

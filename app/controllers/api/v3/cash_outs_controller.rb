@@ -1,6 +1,6 @@
-class Api::V2::CashOutsController < Api::BaseController
+class Api::V3::CashOutsController < Api::BaseController
 
-  include Api::V2::CashOutsHelper
+  include Api::V3::CashOutsHelper
 
   before_action :require_auth
   before_action :parse_boolean_values
@@ -78,7 +78,7 @@ class Api::V2::CashOutsController < Api::BaseController
     @item.hold_amount!
 
     response.status = 201
-    render 'api/v2/cash_outs/show'
+    render 'api/v3/cash_outs/show'
   end
 
   def update

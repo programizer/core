@@ -1,4 +1,4 @@
-class Api::V2::ProposalsController < Api::BaseController
+class Api::V3::ProposalsController < Api::BaseController
   include CurrencyConversion
   include RequestForProposalAuthorization
 
@@ -22,7 +22,7 @@ class Api::V2::ProposalsController < Api::BaseController
       completed_by: params[:completed_by],
       bio: params[:bio]
     )
-    render 'api/v2/proposals/create', status: :created
+    render 'api/v3/proposals/create', status: :created
   end
 
   def destroy

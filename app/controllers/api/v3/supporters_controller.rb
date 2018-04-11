@@ -1,6 +1,6 @@
-class Api::V2::SupportersController < Api::BaseController
+class Api::V3::SupportersController < Api::BaseController
 
-  include Api::V2::PaginationHelper
+  include Api::V3::PaginationHelper
 
   def index
     @team = Team.where(slug: params[:team_slug]).first!
@@ -11,7 +11,7 @@ class Api::V2::SupportersController < Api::BaseController
 
     @collection = @team.top_supporters(values)
 
-    render 'api/v2/supporters/index'
+    render 'api/v3/supporters/index'
   end
 
 end

@@ -1,7 +1,7 @@
-class Api::V2::PeopleController < Api::BaseController
+class Api::V3::PeopleController < Api::BaseController
 
-  include Api::V2::PaginationHelper
-  include Api::V2::PeopleHelper
+  include Api::V3::PaginationHelper
+  include Api::V3::PeopleHelper
 
   before_action :require_auth, only: [ :update ]
 
@@ -39,7 +39,7 @@ class Api::V2::PeopleController < Api::BaseController
 
   def me
     if @item = current_user
-      render 'api/v2/people/me'
+      render 'api/v3/people/me'
     else
       render json: {}
     end

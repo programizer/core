@@ -1,6 +1,6 @@
-class Api::V2::AddressesController < Api::BaseController
+class Api::V3::AddressesController < Api::BaseController
 
-  include Api::V2::AddressesHelper
+  include Api::V3::AddressesHelper
 
   before_action :require_auth
 
@@ -16,13 +16,13 @@ class Api::V2::AddressesController < Api::BaseController
     # Split into two lines so that @item is initialized before ActiveRecord::RecordInvalid exception is raised
     @item = current_user.addresses.new address_params
     @item.save!
-    render 'api/v2/addresses/show'
+    render 'api/v3/addresses/show'
   end
 
   def update
     @item = current_user.addresses.find params[:id]
     @item.update_attributes! address_params
-    render 'api/v2/addresses/show'
+    render 'api/v3/addresses/show'
   end
 
   def destroy

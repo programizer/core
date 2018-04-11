@@ -1,10 +1,10 @@
-class Api::V2::SupportLevelsController < Api::BaseController
+class Api::V3::SupportLevelsController < Api::BaseController
 
   before_action :require_auth, except: [ :paypal_return, :global_summary ]
   before_action :require_support_level, only: [:show, :update, :destroy]
 
   def show
-    render 'api/v2/support_levels/show'
+    render 'api/v3/support_levels/show'
   end
 
   def index
@@ -24,7 +24,7 @@ class Api::V2::SupportLevelsController < Api::BaseController
       end
     end
 
-    render 'api/v2/support_levels/index'
+    render 'api/v3/support_levels/index'
   end
 
   # required parameters:
@@ -45,7 +45,7 @@ class Api::V2::SupportLevelsController < Api::BaseController
 
   def destroy
     @item.cancel!
-    render 'api/v2/support_levels/show'
+    render 'api/v3/support_levels/show'
   end
 
   def paypal_return
@@ -154,7 +154,7 @@ protected
 
       # redirect to paypal approval page
       @item = OpenStruct.new(redirect_to: PaymentMethod::PaypalReferenceTransaction.url_from_token(token))
-      render 'api/v2/redirect'
+      render 'api/v3/redirect'
     else
       if token = params[:payment_method_id].to_s.match(/^stripe:(.+)$/).try(:[],1)
         begin
@@ -201,7 +201,7 @@ protected
       # attempt to bill right away
       @item.payment_method.delay.create_and_settle_pending_invoices!
 
-      render 'api/v2/support_levels/show'
+      render 'api/v3/support_levels/show'
     end
 
   end

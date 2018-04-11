@@ -1,4 +1,4 @@
-class Api::V2::StatsController < Api::BaseController
+class Api::V3::StatsController < Api::BaseController
 
   #before_action :whitelist_access, only: :index
 

@@ -1,6 +1,6 @@
-class Api::V2::CartController < Api::BaseController
+class Api::V3::CartController < Api::BaseController
 
-  include Api::V2::CartHelper
+  include Api::V3::CartHelper
 
   before_action :require_cart, except: [:create]
   before_action :require_auth, only: [:checkout]
@@ -62,7 +62,7 @@ class Api::V2::CartController < Api::BaseController
 
   def create
     @cart = ShoppingCart.create!
-    render 'api/v2/cart/show'
+    render 'api/v3/cart/show'
   end
 
 private

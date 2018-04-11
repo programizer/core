@@ -1,4 +1,4 @@
-class Api::V2::SupportOfferingRewardsController < Api::BaseController
+class Api::V3::SupportOfferingRewardsController < Api::BaseController
 
   before_action :require_auth
 
