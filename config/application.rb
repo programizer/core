@@ -128,6 +128,9 @@ module Api
     } 
     ENV['COINBASE_DISABLED'] = 'true'
     config.coinbase_enabled = !ENV['COINBASE_DISABLED']
+    config.action_dispatch.default_headers.merge!('Content-Type'  => 'application/json' )
+    config.action_dispatch.default_headers.merge!('X-CC-Api-Key'  => api_key )
+    config.action_dispatch.default_headers.merge!('X-CC-Version'  => '2018-03-22' )
 
     # GitHub App
     config.github_api = {
