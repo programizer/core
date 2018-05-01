@@ -1,0 +1,22 @@
+#bancor-wc-nav {
+  > a {
+    outline: 0;    
+  }
+}
+
+#bancor-wc-container {
+  position: relative;
+
+  .widget-close-long {
+    height: 1.5em;
+    background: rgb(0, 191, 255);
+    text-align: center;
+    color: white;
+    cursor: default;
+    display: block;
+
+    &:hover {
+      background: #0087b4;
+    }
+  }
+}

@@ -45,7 +45,7 @@ class Search < ApplicationRecord
   end
 
   def self.tracker_typeahead(query)
-    tracker_search = Tracker.search(query, fields: [:name], order: {bounty_total: :desc}, match: :word_start, limit: 5, boost_by: [:issues_count, :forks, :watchers]).to_a
+    tracker_search = Tracker.search(query, fields: [:name], order: {bounty_total: :desc}, match: :word_start, limit: 5, boost_by: [:forks, :watchers]).to_a
     reject_merged_trackers!(tracker_search)
   end
 
@@ -64,8 +64,8 @@ class Search < ApplicationRecord
     can_add_bounty = params[:can_add_bounty] == "all" ? [] : true
     #build a "with" hash for the filtering options. order hash for sorting options.
     with_hash = {
-      tracker_ids: trackers,
-      language_ids: languages,
+      tracker_id: trackers,
+      language_id: languages,
       can_add_bounty: can_add_bounty,
       bounty_total: { gte: min, lte: max },
       paid_out: false
@@ -77,7 +77,7 @@ class Search < ApplicationRecord
     else
       order_hash = nil
     end
-
+    
     bounteous_issue_search = Issue.search(query, where: with_hash, 
       per_page: per_page, page: page, includes: [tracker: :languages],
       fields: ["title^50", "tracker_name^25", "languages_name^5", "body"],
@@ -188,10 +188,9 @@ protected
 
     tracker_search = Tracker.search(query, 
       fields: [:name], 
-      where: {issues_count: {gte: 1}}, 
       order: {bounty_total: :desc}, 
       match: :word_start, 
-      boost_by: [:issues_count, :forks, :watchers],
+      boost_by: [:forks, :watchers],
       limit: 50).to_a
     self.class.reject_merged_trackers!(tracker_search)
 

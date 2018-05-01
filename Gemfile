@@ -65,6 +65,7 @@ gem 'em-http-request'
 gem 'angular-rails-templates'
 
 gem 'secure_headers'
+gem 'rest-client'
 
 group :development do
   gem 'zeus'
