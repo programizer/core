@@ -29,6 +29,7 @@ class Api::V2::CartController < Api::BaseController
   end
 
   def checkout
+    #response.headers['X-CC-Api-Key'] = ENV['COINBASE_COMMERCE_API_KEY']
     require_params :checkout_method, :currency
 
     # If Person has nothing in their cart, render error immediately.
