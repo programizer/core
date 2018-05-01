@@ -9,8 +9,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-
-
 module Api
   class Application < Rails::Application
 
@@ -132,9 +130,9 @@ module Api
     # Coinbase
     config.coinbase_secret = ENV['COINBASE_SECRET']
     config.coinbase = {
-      api_key: ENV['COINBASE_API_KEY'],
-      api_secret: ENV['COINBASE_API_SECRET'],
-      callback_url: "#{config.api_url}payments/coinbase/callback"
+      api_key: ENV['COINBASE_COMMERCE_API_KEY'],
+      #api_secret: ENV['COINBASE_API_SECRET'],
+      #callback_url: "#{config.api_url}payments/coinbase/callback"
     }
 
     # GitHub App
